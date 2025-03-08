@@ -2,8 +2,8 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import CustomTooltip from "../components/CustomTooltip";
 
 const InputField = ({
-    id,
-    name,
+    // id,
+    // name,
     label,
     tooltipContent = "",
     value,
