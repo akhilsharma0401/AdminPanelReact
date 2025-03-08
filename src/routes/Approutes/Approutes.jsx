@@ -38,7 +38,7 @@ import Settings from '../../profile/pages/Settings';
 import ProfilePage from "../../profile/pages/Profile"
 
 // Admin
-import ManageUser from '../../admin/manageUser/manageUser';
+import ManageUser from '../../admin/manageUser/ManageUser';
 import ManageDltTemplate from '../../admin/manageDltTemplate/ManageDltTemplate';
 import ManageVoiceClips from '../../admin/manageVoiceClips/ManageVoiceClips';
 import ManagePlan from '../../admin/managePlan/ManagePlan';
@@ -50,6 +50,7 @@ import ManagePrefix from '../../admin/managePrefix/managePrefix';
 import Blacklist from '../../admin/blacklist/blacklist';
 import ManageNotifications from '../../admin/manageNotifications.jsx/manageNotifications';
 import ManageRouting from '../../admin/manageRouting/ManageRouting';
+import AddUser from '../../admin/manageUser/pages/AddUser';
 
 
 const Approutes = () => {
@@ -89,6 +90,7 @@ const Approutes = () => {
 
                 {/* admin */}
                 <Route path="/manageuser" element={<ManageUser/>} />
+                <Route path="/manageadduser" element={<AddUser/>} />
                 <Route path="/managedlttemplate" element={<ManageDltTemplate/>} />
                 <Route path="/managevoiceclips" element={<ManageVoiceClips/>} />
                 <Route path="/manageplan" element={<ManagePlan/>} />
