@@ -50,14 +50,14 @@ const ManageUser = () => {
         <div className="flex flex-wrap gap-4 items-end justify-start align-middle pb-3 w-full">
           {/* Name Input Field */}
           <div className="w-full sm:w-48">
-            <InputField
+            {/* <InputField
               label="Name"
               id="manageuserid"
               name="manageuserid"
               placeholder="Enter User ID"
               // value={manageuserid}
               // onChange={handleNameChange}
-            />
+            /> */}
           </div>
 
           {/* Mobile Number Input */}
