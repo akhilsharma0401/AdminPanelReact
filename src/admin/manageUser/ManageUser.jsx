@@ -88,8 +88,6 @@ const ManageUser = () => {
           />
         </div>
 
-
-
         {/* ✅ Search Button */}
         <div className="w-max-content">
           <UniversalButton
