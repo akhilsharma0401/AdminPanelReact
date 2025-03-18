@@ -4,6 +4,9 @@ import GeneratePassword from "../../../whatsapp/components/GeneratePassword";
 import AnimatedDropdown from "../../../whatsapp/components/AnimatedDropdown";
 import UniversalDatePicker from "../../../whatsapp/components/UniversalDatePicker";
 import UniversalButton from "../../../whatsapp/components/UniversalButton";
+import { useEffect } from "react";
+import { RadioButton } from 'primereact/radiobutton';
+import UniversalLabel from "../../../whatsapp/components/UniversalLabel";
 
 const AddUser = () => {
   const [userid, setUserId] = useState("");
@@ -12,22 +15,36 @@ const AddUser = () => {
   const [userLastName, setUserLastName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPhoneNumber, setUserPhoneNumber] = useState("");
-  const [companyName , setCompanyName] = useState("");
+  const [companyName, setCompanyName] = useState("");
   const [userAddress, setUserAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
   const [zipCode, setZipCode] = useState("");
-  const [userType, setUserType] = useState(null);
   const [userAccountManager, setUserAccountManager] = useState(null);
-  const [expiryDate , setExpiryDate] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [userType, setUserType] = useState(""); // Default state
+  const [isReadOnly, setIsReadOnly] = useState(true); // Default: readOnly is true
+  const [accountUrl, setAccountUrl] = useState(""); // State for input value
+  const [enablepostpaid, setEnablePostpaid] = useState("disable"); // Postpaid option state
 
-
-
+  // Dropdown options
   const useroption = [
     { value: "User", label: "User" },
     { value: "Reseller", label: "Reseller" },
   ];
+
+  // Effect to update readOnly state and clear input field
+  useEffect(() => {
+    console.log("User Type Changed:", userType); // Debugging log
+    setIsReadOnly(userType !== "Reseller"); // If "Reseller" is selected, make editable
+    setAccountUrl(""); // Clear input field when selection changes
+  }, [userType]);
+
+  const handleChangeEnablePostpaid = (event) => {
+    setEnablePostpaid(event.target.value);
+  };
+
   const usermanager = [
     { value: "AshimaSainit", label: "AshimaSainit" },
     { value: "RuchiPatel", label: "RuchiPatel" },
@@ -135,19 +152,85 @@ const AddUser = () => {
       <h2 className="text-lg font-semibold mt-6 mb-4">Account Details:</h2>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
         <div className="flex flex-wrap gap-2 mb-2">
-        <AnimatedDropdown
-          label="User Type *"
-          id="userType"
-          name="userType"
-          options={useroption}
-          value={userType}
-          onChange={setUserType}
-        />
-        <InputField label="Account URL"
-          id="accountNumber"
-          name="accountNumber"
-          placeholder="Enter your Account Number"
-        />
+          <div className="flex gap-2">
+            <AnimatedDropdown
+              label="User Type"
+              id="userType"
+              name="userType"
+              options={useroption}
+              value={userType} // Ensure correct value is set
+              onChange={(selected) => {
+                console.log("Dropdown selected:", selected); // Debugging log
+                setUserType(selected); // Correctly update the state
+              }}
+            />
+            <div className="min-w-max">
+              <InputField
+                label="Account URL"
+                id="accounturl"
+                name="accounturl"
+                placeholder="Enter URL"
+                value={accountUrl} // Controlled input value
+                readOnly={isReadOnly} // Controlled readOnly property
+                onChange={(e) => setAccountUrl(e.target.value)} // Handle manual input
+              />
+            </div>
+          </div>
+          {userType === "Reseller" && (
+            <div className="flex items-center gap-2" id="yesnopost">
+              <div className="flex justify-center items-center">
+                <UniversalLabel
+                  text="Postpaid"
+                  id="enablepostpaid"
+                  name="enablepostpaid"
+                  className="text-gray-700 font-medium text-sm"
+                />
+              </div>
+              {/* Option 1 */}
+              <div className="flex items-center gap-2">
+                <RadioButton
+                  inputId="enablepostpaidOption1"
+                  name="enablepostpaidredio"
+                  value="enable"
+                  onChange={handleChangeEnablePostpaid}
+                  checked={enablepostpaid === "enable"}
+                />
+                <label
+                  htmlFor="enablepostpaidOption1"
+                  className="text-gray-700 font-medium text-sm cursor-pointer"
+                >
+                  Yes
+                </label>
+              </div>
+              {/* Option 2 */}
+              <div className="flex items-center gap-2">
+                <RadioButton
+                  inputId="enablepostpaidOption2"
+                  name="enablepostpaidredio"
+                  value="disable"
+                  onChange={handleChangeEnablePostpaid}
+                  checked={enablepostpaid === "disable"}
+                />
+                <label
+                  htmlFor="enablepostpaidOption2"
+                  className="text-gray-700 font-medium text-sm cursor-pointer"
+                >
+                  No
+                </label>
+              </div>
+
+              {/* Conditional Display of Input Field */}
+              {enablepostpaid === "enable" && (
+                <div>
+                  <InputField
+                    id="enablepostinput"
+                    name="enablepostinput"
+                    placeholder="Enter Limit"
+                  />
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <AnimatedDropdown
@@ -176,7 +259,7 @@ const AddUser = () => {
         id="sign"
         name="sign"
         className="mt-2"
-        />
+      />
     </div>
   );
 };

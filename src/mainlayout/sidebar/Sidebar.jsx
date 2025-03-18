@@ -118,6 +118,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, isMobile, }) => {
                 { to: '/rcslivechats', label: 'Live Chats' },
                 { to: '/rcssuggestionreport', label: 'Suggestion Report' },
                 { to: '/rcsdeliveryreport', label: 'Delivery Report' },
+                { to: '/rcsmanagebot', label: 'Manage Bot' },
             ],
         },
         {

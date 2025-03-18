@@ -51,6 +51,12 @@ import Blacklist from '../../admin/blacklist/blacklist';
 import ManageNotifications from '../../admin/manageNotifications.jsx/manageNotifications';
 import ManageRouting from '../../admin/manageRouting/ManageRouting';
 import AddUser from '../../admin/manageUser/pages/AddUser';
+import SendRcs from '../../rcs/sendRcs/SendRcs';
+import ManageTemplateRcs from '../../rcs/manageTemplate/ManageTemplateRcs';
+import SuggestionReportRcs from '../../rcs/suggestionReport/SuggestionReportRcs';
+import DeliveryreportRcs from '../../rcs/deliveryReport/DeliveryreportRcs';
+import ManageBotRcs from '../../rcs/manageBot/ManageBotRcs';
+import AddTemplateRcs from '../../rcs/manageTemplate/pages/AddTemplateRcs';
 
 
 const Approutes = () => {
@@ -103,7 +109,13 @@ const Approutes = () => {
                 <Route path="/manageprefix" element={<ManagePrefix/>} />
                 <Route path="/blacklist" element={<Blacklist/>} />
                 <Route path="/managenotifications" element={<ManageNotifications/>} />
-
+                {/* rcs */}
+                <Route path="/sendrcs" element={<SendRcs/>} />
+                <Route path="/rcsmanagetemplate" element={<ManageTemplateRcs/>} />
+                <Route path="/rcsaddtemplatercs" element={<AddTemplateRcs/>} />
+                <Route path="/rcssuggestionreport" element={<SuggestionReportRcs/>} />
+                <Route path="/rcsdeliveryreport" element={<DeliveryreportRcs/>} />
+                <Route path="/rcsmanagebot" element={<ManageBotRcs/>} />
             </Route>
             <Route path="/dummy" element={<Dummy />} />
 
