@@ -57,6 +57,13 @@ import SuggestionReportRcs from '../../rcs/suggestionReport/SuggestionReportRcs'
 import DeliveryreportRcs from '../../rcs/deliveryReport/DeliveryreportRcs';
 import ManageBotRcs from '../../rcs/manageBot/ManageBotRcs';
 import AddTemplateRcs from '../../rcs/manageTemplate/pages/AddTemplateRcs';
+import SmsReports from '../../sms/smsReports/SmsReports';
+import SendSms from '../../sms/smsSend/SendSms';
+import SmsDLTtemplate from '../../sms/smsDlttemplate/SmsDLTtemplate';
+import SmsWishManagement from '../../sms/smsWishManagement/SmsWishManagement';
+import Smscampaigndetaillogs from '../../sms/smsReports/pages/smscampaigndetaillogs';
+import SmsAttachmentdetaillog from '../../sms/smsReports/pages/SmsAttachmentdetaillog';
+import Download from '../../profile/pages/Download';
 
 
 const Approutes = () => {
@@ -66,6 +73,13 @@ const Approutes = () => {
                 {/* dashboard */}
                 <Route path="/" element={<Dashboard />} />
 
+                {/* SMS */}
+                <Route path="/sendsms" element={<SendSms/>} />
+                <Route path="/smsreports" element={<SmsReports />} />
+                <Route path="/smscampaigndetaillogs" element={<Smscampaigndetaillogs/>} />
+                <Route path="/smsAttachmentdetaillog" element={<SmsAttachmentdetaillog/>} />
+                <Route path="/smsdlttemplates" element={<SmsDLTtemplate />} />
+                <Route path="/smswishmanagement" element={<SmsWishManagement/>} />
                 {/* whatsapp */}
                 <Route path="/managetemplate" element={<ManageTemplate />} />
                 <Route path="/createtemplate" element={<Whatsappcreatetemplate />} />
@@ -86,6 +100,7 @@ const Approutes = () => {
                 {/* profile */}
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/settings" element={<Settings />} />
+                <Route path="/download" element={<Download/>} />
 
                 {/* manage funds */}
                 <Route path="/recharge" element={<Recharge />} />
@@ -109,6 +124,7 @@ const Approutes = () => {
                 <Route path="/manageprefix" element={<ManagePrefix/>} />
                 <Route path="/blacklist" element={<Blacklist/>} />
                 <Route path="/managenotifications" element={<ManageNotifications/>} />
+
                 {/* rcs */}
                 <Route path="/sendrcs" element={<SendRcs/>} />
                 <Route path="/rcsmanagetemplate" element={<ManageTemplateRcs/>} />

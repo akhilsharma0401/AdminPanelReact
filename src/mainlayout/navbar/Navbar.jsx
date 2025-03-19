@@ -39,6 +39,10 @@ const Navbar = ({ isCollapsed, setIsCollapsed }) => {
         navigate("/profile");
     }, [navigate]);
 
+    const handleViewDownload = useCallback(() => {
+        navigate("/download");
+      }, [navigate]);
+
     const handleViewSetting = useCallback(() => {
         handleProfileMenu();
         navigate("/settings")
@@ -70,7 +74,7 @@ const Navbar = ({ isCollapsed, setIsCollapsed }) => {
                         { title: "Account Info", Icon: InfoIcon, action: () => setShowModal(true) },
                         { title: "Add Funds", Icon: PaymentsIcon },
                         { title: "Wallet", Icon: WalletIcon },
-                        { title: "Downloads", Icon: DownloadIcon },
+                        { title: "Downloads", Icon: DownloadIcon, action: handleViewDownload },
                     ].map(({ title, Icon, action }, idx) => (
                         <CustomTooltip key={idx} title={title} placement="bottom" arrow>
                             <button
@@ -116,7 +120,7 @@ const Navbar = ({ isCollapsed, setIsCollapsed }) => {
                             { text: "Info", icon: <InfoIcon />, action: () => setShowModal(true) },
                             { text: "Money", icon: <PaymentsIcon /> },
                             { text: "Wallet", icon: <WalletIcon /> },
-                            { text: "Download", icon: <DownloadIcon /> },
+                            { text: "Download", icon: <DownloadIcon />, action: handleViewDownload },
                             { text: "Profile", icon: <ProfileIcon />, action: handleViewProfile },
                             { text: "Settings", icon: <SettingsIcon />, action: handleViewSetting },
                             { text: "Transactions", icon: <HistoryIcon /> },
