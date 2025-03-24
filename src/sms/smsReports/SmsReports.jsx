@@ -751,7 +751,6 @@ const SmsReports = () => {
 
                 </div>
               )}
-
             </div>
           )}
         </div>

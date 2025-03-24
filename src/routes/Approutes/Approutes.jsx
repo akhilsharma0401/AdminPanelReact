@@ -64,6 +64,10 @@ import SmsWishManagement from '../../sms/smsWishManagement/SmsWishManagement';
 import Smscampaigndetaillogs from '../../sms/smsReports/pages/smscampaigndetaillogs';
 import SmsAttachmentdetaillog from '../../sms/smsReports/pages/SmsAttachmentdetaillog';
 import Download from '../../profile/pages/Download';
+import AddService from '../../admin/manageSMPP.jsx/pages/AddService';
+import AddRouting from '../../admin/manageRouting/pages/AddRouting';
+import EditRouting from '../../admin/manageRouting/pages/EditRouting';
+import SMPPErrorCode from '../../admin/smmpErrorCode/SMPPErrorCode';
 
 
 const Approutes = () => {
@@ -119,8 +123,11 @@ const Approutes = () => {
                 <Route path="/GraphMain" element={<GraphMain/>} />
                 <Route path="/graphuserwise" element={<GraphUserWise/>} />
                 <Route path="/manageSMPP" element={<ManageSMPP/>} />
+                <Route path="/addservice" element={<AddService/>} />
                 <Route path="/managerouting" element={<ManageRouting/>} />
-                <Route path="/SMPPerrorcode" element={<ManageSMPP/>} />
+                <Route path="/addrouting" element={<AddRouting/>} />
+                <Route path="/editrouting" element={<EditRouting/>} />
+                <Route path="/SMPPerrorcode" element={<SMPPErrorCode />} />
                 <Route path="/manageprefix" element={<ManagePrefix/>} />
                 <Route path="/blacklist" element={<Blacklist/>} />
                 <Route path="/managenotifications" element={<ManageNotifications/>} />
