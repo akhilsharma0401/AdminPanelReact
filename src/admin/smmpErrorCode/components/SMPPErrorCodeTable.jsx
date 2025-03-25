@@ -86,28 +86,28 @@ const SMPPErrorCodeTable = ({ id, name }) => {
         setSMPPErrorCodeEdit(true);
     };
 
-    const serviceOptions= [
+    const serviceOptions = [
         { value: 'Service1', label: 'Service1' },
         { value: 'Service2', label: 'Service2' },
         { value: 'Service3', label: 'Service3' },
     ];
-    const handleServiceEdit= (service) => {
+    const handleServiceEdit = (service) => {
         console.log(service);
     };
-    const displaytypeOptions= [
+    const displaytypeOptions = [
         { value: 'Display1', label: 'Display1' },
         { value: 'Display2', label: 'Display2' },
         { value: 'Display3', label: 'Display3' },
     ];
-    const handleDisplaytyperEdit= (display) => {
+    const handleDisplaytyperEdit = (display) => {
         console.log(display);
     };
-    const displayreasonOptions= [
+    const displayreasonOptions = [
         { value: 'Vendor1', label: 'Vendor1' },
         { value: 'Vendor2', label: 'Vendor2' },
         { value: 'Vendor3', label: 'Vendor3' },
     ];
-    const handleDisplayreasonEdit= (reason) => {
+    const handleDisplayreasonEdit = (reason) => {
         console.log(reason);
     };
 
@@ -270,68 +270,79 @@ const SMPPErrorCodeTable = ({ id, name }) => {
                 draggable={false}
             >
                 <div className='space-y-4'>
-                <div className='grid grid-cols-2 gap-4'>
-                    <AnimatedDropdown
-                        label="Service"
-                        options={serviceOptions}
-                        id="serviceedit"
-                        name="serviceedit"
-                        onChange={handleServiceEdit}
-                    />
-                    <InputField
-                        label="Vendor Error Code"
-                        id="vendorerrorcodeedit"
-                        name="vendorerrorcodeedit"
-                        placeholder='Enter Vendor Error Code'
-                    />
-                </div>
-                <div className='grid grid-cols-2 gap-4'>
-                    <InputField
-                        label="Vendor Error Status"
-                        id="vendorerrorstatusedit"
-                        name="vendorerrorstatusedit"
-                        placeholder="Vendor Error Status"
-                    />
-                    <UniversalTextArea
-                        label="Vendor Error Code Description"
-                        id="vendorerrorcodedescriptionedit"
-                        name="vendorerrorcodedescriptionedit"
-                        placeholder="Vendor Error Code Description"
-                      
-                    />
-                </div>
-                <div className='grid grid-cols-2 gap-4'>
-                    <AnimatedDropdown
-                        label="Display Type"
-                        options={displaytypeOptions}
-                        id="displaytypeedit"
-                        name="displaytypeedit"
-                        onChange={handleDisplaytyperEdit}
-                    />
-                    <AnimatedDropdown
-                        label="Display Reason"
-                        options={displayreasonOptions}
-                        id="displayreasonedit"
-                        name="displayreasonedit"
-                        onChange={handleDisplayreasonEdit}
-                     />
-                </div>
-                <div className='grid grid-cols-2 gap-4'>
-                    <InputField
-                        label="Display Error Code"
-                        id="displayerrorcodeedit"
-                        name="displayerrorcodeedit"
-                        placeholder="Display Error Code"
-                        readOnly="true"
-                    />
-                </div>
-                <div className='flex justify-center'>
-                    <UniversalButton
-                        label="Save"
-                        id="saveedit"
-                        name="saveedit"
-                    />
-                </div>
+                    <div className='grid grid-cols-2 gap-4'>
+                        <AnimatedDropdown
+                            label="Service"
+                            options={serviceOptions}
+                            id="serviceedit"
+                            name="serviceedit"
+                            onChange={handleServiceEdit}
+                        />
+                        <InputField
+                            label="Vendor Error Code"
+                            id="vendorerrorcodeedit"
+                            name="vendorerrorcodeedit"
+                            placeholder='Enter Vendor Error Code'
+                        />
+                    </div>
+                    <div className='grid grid-cols-2 gap-4'>
+                        <InputField
+                            label="Vendor Error Status"
+                            id="vendorerrorstatusedit"
+                            name="vendorerrorstatusedit"
+                            placeholder="Vendor Error Status"
+                        />
+                        <UniversalTextArea
+                            label="Vendor Error Code Description"
+                            id="vendorerrorcodedescriptionedit"
+                            name="vendorerrorcodedescriptionedit"
+                            placeholder="Vendor Error Code Description"
+
+                        />
+                    </div>
+                    <div className='grid grid-cols-2 gap-4'>
+                        <AnimatedDropdown
+                            label="Display Type"
+                            options={displaytypeOptions}
+                            id="displaytypeedit"
+                            name="displaytypeedit"
+                            onChange={handleDisplaytyperEdit}
+                        />
+                        <AnimatedDropdown
+                            label="Display Reason"
+                            options={displayreasonOptions}
+                            id="displayreasonedit"
+                            name="displayreasonedit"
+                            onChange={handleDisplayreasonEdit}
+                        />
+                    </div>
+                    <div className='grid grid-cols-2 gap-4'>
+                        <InputField
+                            label="Display Error Code"
+                            id="displayerrorcodeedit"
+                            name="displayerrorcodeedit"
+                            placeholder="Display Error Code"
+                            readOnly="true"
+                        />
+                    </div>
+                    <div className="">
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="refundOnDelivery" className="form-checkbox" />
+                            <span className='text-sm'>Refund For On Delivery Account</span>
+                        </label>
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="dndRefund" className="form-checkbox" />
+                            <span className='text-sm'>DND Refund</span>
+                        </label>
+                    </div>
+
+                    <div className='flex justify-center'>
+                        <UniversalButton
+                            label="Save"
+                            id="saveedit"
+                            name="saveedit"
+                        />
+                    </div>
                 </div>
             </Dialog>
         </div>

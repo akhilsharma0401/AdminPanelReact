@@ -25,7 +25,7 @@ const UniversalTextArea = ({ label, id, name, value, storageKey, placeholder, er
   };
 
   return (
-    <div className="w-full mb-2">
+    <div className="w-full">
       {label && (
         <label htmlFor={id} className="block text-sm font-semibold text-gray-700 mb-1">
           {label}
